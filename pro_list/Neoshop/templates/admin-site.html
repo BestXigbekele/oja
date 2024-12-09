@@ -1,0 +1,37 @@
+{% extends 'admin-head.html' %}
+{% block content%}
+{%load static%}
+<!-- Content wrapper -->
+{% for message in messages%}
+{% if message %}
+{{message}}
+{% endif%}
+{% endfor%}
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="row g-1" style=" display: flex;
+            flex-direction: column; align-items: center;">
+            <div class="col-md-6">
+                <div class="card">
+                    <h5 class="card-header">Add Products</h5>
+                    <div class="card-body">
+                        <form method=POST action="">
+                            {%csrf_token%}
+
+                            <div class="mb-4">
+
+
+
+                                {{form.as_p}}
+
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {%endblock%}
